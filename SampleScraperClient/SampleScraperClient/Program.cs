@@ -129,7 +129,7 @@ namespace SampleScraperClient
                     }
                 }
             }
-            Console.WriteLine("Departure airport:  arrival airport:  connection airport:  departure time:  arrival:  lovest price: ");
+            Console.WriteLine("Departure airport:  arrival airport:  connection airport:  departure time:  arrival:  lovest price: taxes:");
             foreach (var item in flights)
             {
                 //36 request
@@ -161,10 +161,11 @@ namespace SampleScraperClient
 
 
                 }
+                var tax = item.ElementAt(17) == "" ? "" : item.ElementAt(17).Substring(2); 
                 //Console.WriteLine("Departure airport:  arrival airport:  connection airport:  departure time:  arrival:  lovest price: " );
                 if (item.ElementAt(2) == "Direct") { 
                
-                    Console.WriteLine(item.ElementAt(9) + "     " + item.ElementAt(10) + "              " + connectionAirport +"              " + item.ElementAt(0) + "            " + item.ElementAt(1) + "     " + price + "           " + item.ElementAt(17).Substring(2));
+                    Console.WriteLine(item.ElementAt(9) + "     " + item.ElementAt(10) + "              " + connectionAirport +"              " + item.ElementAt(0) + "            " + item.ElementAt(1) + "     " + price + "           " + tax);
                 }
             }    
         }
